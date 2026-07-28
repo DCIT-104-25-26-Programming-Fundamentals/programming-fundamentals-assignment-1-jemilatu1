@@ -49,3 +49,62 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+
+
+
+# Function to calculate the sum
+def calculate_sum(numbers):
+    return sum(numbers)
+
+
+# Function to calculate the average
+def calculate_average(numbers):
+    if not numbers:
+        return 0.0
+    return sum(numbers) / len(numbers)
+
+
+# Function to find the maximum value
+def find_max(numbers):
+    return max(numbers) if numbers else None
+
+
+# Function to find the minimum value
+def find_min(numbers):
+    return min(numbers) if numbers else None
+
+
+def get_float_input(prompt):
+    """Safely prompts the user for a valid number."""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input! Please enter a valid number.")
+
+
+def main():
+    while True:
+        try:
+            n = int(input("How many numbers? "))
+            if n <= 0:
+                print("Error: Number of values must be greater than 0.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input! Please enter a valid integer.")
+
+    numbers = []
+    for i in range(n):
+        num = get_float_input(f"Enter number {i + 1}: ")
+        numbers.append(num)
+
+    print("\nResults:")
+    print(f"Sum:     {calculate_sum(numbers):.2f}")
+    print(f"Average: {calculate_average(numbers):.2f}")
+    print(f"Maximum: {find_max(numbers):.2f}")
+    print(f"Minimum: {find_min(numbers):.2f}")
+
+
+if __name__ == "__main__":
+    main()
